@@ -4,7 +4,7 @@
 [[https://github.com/zakame/knockout-1punch-talk]]
 
 #+attr_html: :width 100px
-[[./punch.jpg]]
+[[./img/punch.jpg]]
 
 * About Me
 
@@ -14,7 +14,7 @@
   - Hacks on Perl, Docker, Emacs, Android
 
   #+attr_html: :width 100px
-  [[./cheesysmile.jpg]]  
+  [[./img/cheesysmile.jpg]]  
 
 * What's this for?
 
@@ -23,7 +23,7 @@
   - For you: looking for a light, easy JS framework
 
   #+attr_html: :width 100px
-  [[./boredsaitama.jpg]]
+  [[./img/boredsaitama.jpg]]
 
 * MVVM
 
@@ -31,7 +31,7 @@
   - http://knockoutjs.com/documentation/observables.html#mvvm_and_view_models
 
   #+attr_html: :width 100px
-  [[./eh.jpg]]  
+  [[./img/eh.jpg]]  
 
 * Model
 
@@ -76,12 +76,12 @@
   - More info in http://martinfowler.com/eaaDev/uiArchs.html
 
   #+attr_html: :width 100px
-  [[./error.jpg]]
+  [[./img/error.jpg]]
 
 * Quickstart
 
   #+attr_html: :width 100px
-  [[./20words.png]]
+  [[./img/20words.png]]
 
 * Quickstart: JS
 
@@ -151,9 +151,9 @@
 * Questions?
 
   #+attr_html: :width 100px
-  [[./udoneyet.jpg]]
+  [[./img/udoneyet.jpg]]
 
 * Finis
 
   #+attr_html: :width 100px
-  [[./thanksnote.jpg]]
+  [[./img/thanksnote.jpg]]
