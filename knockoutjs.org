@@ -90,8 +90,8 @@
       'use strict';
 
       var Person = {
-          firstName: "Zak",
-          lastName: "Elep"
+          firstName: ko.observable("Zak"),
+          lastName: ko.observable("Elep")
       };
 
       ko.applyBindings(Person);
@@ -100,17 +100,28 @@
 
 * Quickstart: HTML
 
-  #+BEGIN_SRC html :tangle basics.html
-  <div id="basics" class="container">
-    <h2>Basics</h2>
-    <p>First Name: <span data-bind="value: firstName"></span></p>
-    <p>Last Name: <span data-bind="value: lastName"></span></p>
-    <br/>
-    <!-- put some KO magic here... //-->
-  </div>
-  <script src="jquery-1.11.3.min.js"></script>
-  <script src="knockout-min.js"></script>
-  <script src="person.js"></script>
+  #+BEGIN_SRC html :tangle person.html
+  <!doctype html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8"/>
+      <title>One-Punch a Person</title>
+    </head>
+    <body>
+      <div id="basics" class="container">
+        <h2>Person</h2>
+        <p>First Name: <span data-bind="text: firstName"></span></p>
+        <p>Last Name: <span data-bind="text: lastName"></span></p>
+        <br/>
+        <!-- put some KO magic here... //-->
+        <p>Your first name: <input name="" type="text" value="" data-bind="value: firstName, valueUpdate: 'keyup'"/></p>
+        <p>Your last name: <input name="" type="text" value="" data-bind="value: lastName, valueUpdate: 'keyup'"/></p>
+      </div>
+      <script src="jquery-1.11.3.min.js"></script>
+      <script src="knockout-min.js"></script>
+      <script src="person.js"></script>
+    </body>
+  </html>
   #+END_SRC
 
 * More demos
