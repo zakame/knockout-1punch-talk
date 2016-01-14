@@ -1,1 +1,159 @@
-knockoutjs.org
+#+TITLE: KnockoutJS: One-Punch JavaScript?
+#+AUTHOR: Zak B. Elep <zak.elep@yoyo-holdings.com>
+
+[[https://github.com/zakame/knockout-1punch-talk]]
+
+#+attr_html: :width 100px
+[[./img/punch.jpg]]
+
+* About Me
+
+  - @zakame in GitHub, Twitter, FB
+  - Co-Founder, Chief Architect, YOYO Holdings
+  - Recovering Sysadmin
+  - Hacks on Perl, Docker, Emacs, Android
+
+  #+attr_html: :width 100px
+  [[./img/cheesysmile.jpg]]  
+
+* What's this for?
+
+  - For me: a study of *MVVM* UI architecture (not just for JS but for
+    Android)
+  - For you: looking for a light, easy JS framework
+
+  #+attr_html: :width 100px
+  [[./img/boredsaitama.jpg]]
+
+* MVVM
+
+  - Model, View, ViewModel architecture!
+  - http://knockoutjs.com/documentation/observables.html#mvvm_and_view_models
+
+  #+attr_html: :width 100px
+  [[./img/eh.jpg]]  
+
+* Model
+
+  #+BEGIN_QUOTE
+    * A model: your application’s stored data. This data represents objects and operations in your business domain (e.g., bank accounts that can perform money transfers) and is independent of any UI. When using KO, you will usually make Ajax calls to some server-side code to read and write this stored model data.
+  #+END_QUOTE
+
+  - Usually some JS data object or REST API JSON response
+  - Leverage jQuery or other tools to manage this for you
+
+* View Model
+
+  #+BEGIN_QUOTE
+    * A view model: a pure-code representation of the data and operations on a UI. For example, if you’re implementing a list editor, your view model would be an object holding a list of items, and exposing methods to add and remove items.
+
+      Note that this is not the UI itself: it doesn’t have any concept of buttons or display styles. It’s not the persisted data model either - it holds the unsaved data the user is working with. When using KO, your view models are pure JavaScript objects that hold no knowledge of HTML. Keeping the view model abstract in this way lets it stay simple, so you can manage more sophisticated behaviors without getting lost.
+  #+END_QUOTE
+
+  - You write this
+  - Usually a JS object from function contructor (or plain JS object)
+  - You can also write *custom binding handlers* to further abstract and simplify
+
+* View
+
+  #+BEGIN_QUOTE
+    * A view: a visible, interactive UI representing the state of the view model. It displays information from the view model, sends commands to the view model (e.g., when the user clicks buttons), and updates whenever the state of the view model changes.
+
+      When using KO, your view is simply your HTML document with declarative bindings to link it to the view model. Alternatively, you can use templates that generate HTML using data from your view model.
+  #+END_QUOTE
+
+  - Your HTML+CSS
+  - Also other JS libs (e.g. SammyJS) for client-side front
+    controllers/routing in SPAs
+
+* MVVM vs MVC
+
+  - Both make use of *Observer Pattern*
+  - Controllers in MVC are application of *Strategy Pattern* from View
+    to interact with the Model
+  - ViewModels in MVVM are *abstract representations* of the View to
+    wrap the Model to be displayed
+  - More info in http://martinfowler.com/eaaDev/uiArchs.html
+
+  #+attr_html: :width 100px
+  [[./img/error.jpg]]
+
+* Quickstart
+
+  #+attr_html: :width 100px
+  [[./img/20words.png]]
+
+* Quickstart: JS
+
+  #+BEGIN_SRC js :tangle person.js
+  $(document).ready(function() {
+      'use strict';
+
+      var Person = {
+          firstName: ko.observable("Saitama"),
+          lastName: ko.observable("One-Punch Man")
+      };
+
+      ko.applyBindings(Person);
+  });
+  #+END_SRC
+
+* Quickstart: HTML
+
+  #+BEGIN_SRC html :tangle person.html
+  <!doctype html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8"/>
+      <title>One-Punch a Person</title>
+    </head>
+    <body>
+      <div id="basics" class="container">
+        <h2>Person</h2>
+        <p>First Name: <span data-bind="text: firstName"></span></p>
+        <p>Last Name: <span data-bind="text: lastName"></span></p>
+        <br/>
+        <!-- put some KO magic here... //-->
+        <p>Your first name: <input name="" type="text" value="" data-bind="value: firstName, valueUpdate: 'keyup'"/></p>
+        <p>Your last name: <input name="" type="text" value="" data-bind="value: lastName, valueUpdate: 'keyup'"/></p>
+      </div>
+      <script src="jquery-1.11.3.min.js"></script>
+      <script src="knockout-min.js"></script>
+      <script src="person.js"></script>
+    </body>
+  </html>
+  #+END_SRC
+
+* More demos
+
+  - https://github.com/zakame/kojs-hello
+
+* Elsewhere
+
+** KnockoutJS references
+
+  - http://knockoutjs.com
+  - http://learn.knockoutjs.com
+  - http://www.knockmeout.net
+  - https://github.com/carlhoerberg/knockout-websocket-example
+
+** More MVVM/MVC
+
+   - [[https://programmers.stackexchange.com/questions/104889/what-is-the-difference-between-the-controller-in-mvc-and-viewmodel-in-mvvm#104901][StackExchange: What is the difference between the controller in MVC and ViewModel in MVVM?]]
+   - [[https://en.wikipedia.org/wiki/Strategy_pattern][Wikipedia: Strategy Pattern]]
+   - [[https://addyosmani.com/blog/understanding-mvvm-a-guide-for-javascript-developers/][Addy Osmani: Understanding MVVM]]
+   - [[https://en.wikipedia.org/wiki/JSP_model_2_architecture][Wikipedia: JSP Model 2 Architecture]]
+
+** One-Punch Man Reaction Faces
+
+  - http://1pun.ch
+
+* Questions?
+
+  #+attr_html: :width 100px
+  [[./img/udoneyet.jpg]]
+
+* Finis
+
+  #+attr_html: :width 100px
+  [[./img/thanksnote.jpg]]
