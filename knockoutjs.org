@@ -1,0 +1,126 @@
+#+TITLE: KnockoutJS: One-Punch JavaScript?
+#+AUTHOR: Zak B. Elep <zak.elep@yoyo-holdings.com>
+
+#+attr_html: :width 100px
+[[./punch.jpg]]
+
+* About Me
+
+  - @zakame in GitHub, Twitter, FB
+  - Co-Founder, Chief Architect, YOYO Holdings
+  - Recovering Sysadmin
+  - Hacks on Perl, Docker, Emacs, Android
+
+  #+attr_html: :width 100px
+  [[./cheesysmile.jpg]]  
+
+* What's this for?
+
+  - For me: a study of *MVVM* UI architecture (not just for JS but for
+    Android)
+  - For you: looking for a light, easy JS framework
+
+  #+attr_html: :width 100px
+  [[./boredsaitama.jpg]]
+
+* MVVM
+
+  - Model, View, ViewModel architecture!
+  - http://knockoutjs.com/documentation/observables.html#mvvm_and_view_models
+
+  #+attr_html: :width 100px
+  [[./eh.jpg]]  
+
+* Model
+
+  #+BEGIN_QUOTE
+    * A model: your application’s stored data. This data represents objects and operations in your business domain (e.g., bank accounts that can perform money transfers) and is independent of any UI. When using KO, you will usually make Ajax calls to some server-side code to read and write this stored model data.
+  #+END_QUOTE
+
+  - Usually some JS data object or REST API JSON response
+  - Leverage jQuery or other tools to manage this for you
+
+* View Model
+
+  #+BEGIN_QUOTE
+    * A view model: a pure-code representation of the data and operations on a UI. For example, if you’re implementing a list editor, your view model would be an object holding a list of items, and exposing methods to add and remove items.
+
+      Note that this is not the UI itself: it doesn’t have any concept of buttons or display styles. It’s not the persisted data model either - it holds the unsaved data the user is working with. When using KO, your view models are pure JavaScript objects that hold no knowledge of HTML. Keeping the view model abstract in this way lets it stay simple, so you can manage more sophisticated behaviors without getting lost.
+  #+END_QUOTE
+
+  - You write this
+  - Usually a JS object from function contructor (or plain JS object)
+  - You can also write *custom binding handlers* to further abstract and simplify
+
+* View
+
+  #+BEGIN_QUOTE
+    * A view: a visible, interactive UI representing the state of the view model. It displays information from the view model, sends commands to the view model (e.g., when the user clicks buttons), and updates whenever the state of the view model changes.
+
+      When using KO, your view is simply your HTML document with declarative bindings to link it to the view model. Alternatively, you can use templates that generate HTML using data from your view model.
+  #+END_QUOTE
+
+  - Your HTML+CSS
+  - Also other JS libs (e.g. SammyJS) for client-side front
+    controllers/routing in SPAs
+
+* MVVM vs MVC
+
+  - Both make use of *Observer Pattern*
+  - Controllers in MVC are application of *Strategy Pattern* from View
+    to interact with the Model
+  - ViewModels in MVVM are *abstract representations* of the View to
+    wrap the Model to be displayed
+  - More info in http://martinfowler.com/eaaDev/uiArchs.html
+
+  #+attr_html: :width 100px
+  [[./error.jpg]]
+
+* Quickstart
+
+  #+attr_html: :width 100px
+  [[./20words.png]]
+
+* Quickstart: JS
+
+  #+BEGIN_SRC js :tangle person.js
+  $(document).ready(function() {
+      'use strict';
+
+      var Person = {
+          firstName: "Zak",
+          lastName: "Elep"
+      };
+
+      ko.applyBindings(Person);
+  });
+  #+END_SRC
+
+* Quickstart: HTML
+
+  #+BEGIN_SRC html :tangle basics.html
+  <div id="basics" class="container">
+    <h2>Basics</h2>
+    <p>First Name: <span data-bind="value: firstName"></span></p>
+    <p>Last Name: <span data-bind="value: lastName"></span></p>
+    <br/>
+    <!-- put some KO magic here... //-->
+  </div>
+  <script src="jquery-1.11.3.min.js"></script>
+  <script src="knockout-min.js"></script>
+  <script src="person.js"></script>
+  #+END_SRC
+
+* More demos
+
+  - https://github.com/zakame/kojs-hello
+
+* Questions?
+
+  #+attr_html: :width 100px
+  [[./udoneyet.jpg]]
+
+* Finis
+
+  #+attr_html: :width 100px
+  [[./thanksnote.jpg]]
