@@ -1,6 +1,8 @@
 #+TITLE: KnockoutJS: One-Punch JavaScript?
 #+AUTHOR: Zak B. Elep <zak.elep@yoyo-holdings.com>
 
+[[https://github.com/zakame/knockout-1punch-talk]]
+
 #+attr_html: :width 100px
 [[./punch.jpg]]
 
