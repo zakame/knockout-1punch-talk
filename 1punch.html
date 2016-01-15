@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>1pun.ch KnockoutJS</title>
+  </head>
+  <body>
+    <div id="one-punch" class="container">
+      <h1>1pun.ch KnockoutJS</h1>
+      <div id="one-punch-image-search" class="container">
+        <h2>Look for images</h2>
+        <p><input name="" type="text" value="" data-bind="value: searchKeywords, valueUpdate: 'keyup'" placeholder="Search..."/></p>
+        <div id="one-punch-search-results" class="container">
+          <table id="one-punch-search-images">
+            <tbody data-bind="foreach: searchResults">
+              <tr>
+                <td><img width="256" alt="" data-bind="attr: {src: imageSrc}"/></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div id="one-punch-random" class="container">
+        <h2>Random Image</h2>
+        <p><button data-bind="click: getRandomImage">Click Me</button></p>
+        <div id="one-punch-random-image" class="container">
+          <img width="256" alt="" data-bind="attr:{src: randomImage}"/>
+        </div>
+        <p><span data-bind="value: randomImage"></span></p>
+      </div>
+      <div id="one-punch-all" class="container">
+        <h2>All Images</h2>
+        <p><button data-bind="click: showAllImages">Show All Images</button></p>
+        <table id="one-punch-all-images">
+          <tbody data-bind="foreach: images">
+            <tr>
+              <td><img width="256" alt="" data-bind="attr: {src: imageSrc}"/></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <script src="jquery-1.11.3.min.js"></script>
+    <script src="knockout-min.js"></script>
+    <script src="1punch.js"></script>
+  </body>
+</html>

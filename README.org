@@ -124,6 +124,14 @@
   </html>
   #+END_SRC
 
+* 1pun.ch in KnockoutJS
+
+  - [[./1punch.pl]] is a RESTful API backend (Perl using [[http://mojolicio.us][Mojolicious]])
+    + =/all= list all images (fetched from [[http://1pun.ch][1pun.ch]])
+    + =/search= basic keyword (title) search
+    + =/random= give a random image
+  - [[./1punch.html]] and [[./1punch.js]] implements our Knockout SPA
+
 * More demos
 
   - https://github.com/zakame/kojs-hello
