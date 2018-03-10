@@ -18,7 +18,8 @@ get '/all' => sub {
 
 any '/search' => sub {
     my $self = shift;
-    my @terms = split / / => $self->param('words');
+    return $self->render( json => [] ) unless $self->param('words');
+    my @terms = split /\s+/ => $self->param('words');
 
     my @res;
     for my $term (@terms) {
