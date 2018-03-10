@@ -1,18 +1,11 @@
 #!/usr/bin/env perl
-
-use DirHandle;
-use Encode;
 use Mojolicious::Lite;
 
 plugin 'PODRenderer';
 
-my $dh = DirHandle->new('img');
 my @children;
-while ( defined( my $ent = $dh->read ) ) {
-    next if $ent eq '.' or $ent eq '..';
-    next if $ent !~ /(png|jpg|gif)$/;
-    push @children, join '/' => 'img', Encode::decode_utf8($ent);
-}
+app->home->child('img')->list->grep( sub {/(png|jpg|gif)$/} )
+    ->each( sub { push @children, $_->to_rel( app->home ) } );
 
 push @{ app->static->paths }, '.';
 
